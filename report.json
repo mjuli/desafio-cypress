@@ -1,0 +1,823 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 16,
+    "passes": 16,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-08-15T11:03:56.038Z",
+    "end": "2022-08-15T11:18:39.905Z",
+    "duration": 18313,
+    "testsRegistered": 16,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cea5b472-7a22-4bca-928c-236be9b0652b",
+      "title": "",
+      "fullFile": "cypress/e2e/busca_cep.cy.js",
+      "file": "cypress/e2e/busca_cep.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2916a8d5-8b68-45ae-800f-406911260a73",
+          "title": "Buscar CEP",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "d9600fe0-d178-4e7a-878c-4235116953bd",
+              "title": "válido e com bairro",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar o endereço com o bairro",
+                  "fullTitle": "Buscar CEP válido e com bairro Deve retornar o endereço com o bairro",
+                  "timedOut": null,
+                  "duration": 2057,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const validCEP = '58073-197';\ncy.get('.form-control').type(`${validCEP}`);\ncy.get('.btn').click();\ncy.contains('CEP: 58073-197').should('exist');\ncy.contains('Logradouro: Rua Aposentado Abel Odilon Paulo').should('exist');\ncy.contains('Bairro: Cidade dos Colibris').should('exist');\ncy.contains('Não foi possível encontrar o bairro deste CEP').should('not.exist');\ncy.contains('CEP inválido').should('not.exist');",
+                  "err": {},
+                  "uuid": "c95074f0-0add-4d21-a55c-6600da375014",
+                  "parentUUID": "d9600fe0-d178-4e7a-878c-4235116953bd",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c95074f0-0add-4d21-a55c-6600da375014"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2057,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "c7010196-0d47-4269-b9f9-0f1029994feb",
+              "title": "válido, mas sem bairro",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar o endereço sem o bairro",
+                  "fullTitle": "Buscar CEP válido, mas sem bairro Deve retornar o endereço sem o bairro",
+                  "timedOut": null,
+                  "duration": 1165,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const validCEP = '18150000';\ncy.get('.form-control').type(`${validCEP}`);\ncy.get('.btn').click();\ncy.contains('CEP: 18150-000').should('exist');\ncy.contains('Cidade: Ibiúna').should('exist');\ncy.contains('Bairro: ').should('not.exist');\ncy.contains('Não foi possível encontrar o bairro deste CEP').should('exist');\ncy.contains('CEP inválido').should('not.exist');",
+                  "err": {},
+                  "uuid": "505c2a37-336d-4583-9035-06c3d474407a",
+                  "parentUUID": "c7010196-0d47-4269-b9f9-0f1029994feb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "505c2a37-336d-4583-9035-06c3d474407a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1165,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "66122538-c86d-4118-b437-ac5805ca493e",
+              "title": "inválido",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar uma mensagem de erro",
+                  "fullTitle": "Buscar CEP inválido Deve retornar uma mensagem de erro",
+                  "timedOut": null,
+                  "duration": 1002,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const invalidCEP = '12345678';\ncy.get('.form-control').type(`${invalidCEP}`);\ncy.get('.btn').click();\ncy.contains('CEP: ').should('not.exist');\ncy.contains('Não foi possível encontrar o bairro deste CEP').should('not.exist');\ncy.contains('CEP inválido').should('exist');",
+                  "err": {},
+                  "uuid": "45e28070-6796-472b-94b4-077963d03198",
+                  "parentUUID": "66122538-c86d-4118-b437-ac5805ca493e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "45e28070-6796-472b-94b4-077963d03198"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1002,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "a2408f55-db5b-4bb5-9395-778a5340ac71",
+              "title": "sem informar o cep",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Não deve realizar a requisição",
+                  "fullTitle": "Buscar CEP sem informar o cep Não deve realizar a requisição",
+                  "timedOut": null,
+                  "duration": 481,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#cep-form').invoke('submit', e => {\n  e.preventDefault();\n  throw new Error('Requesição realizada!');\n});\ncy.get('#cep-form').within(() => {\n  cy.get('.form-control').click();\n});\ncy.get('.form-control').invoke('prop', 'validationMessage').should('equal', 'Preencha este campo.');",
+                  "err": {},
+                  "uuid": "149fdf48-e781-4cc5-9b6e-b642d47c0616",
+                  "parentUUID": "a2408f55-db5b-4bb5-9395-778a5340ac71",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "149fdf48-e781-4cc5-9b6e-b642d47c0616"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 481,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "bd747bf0-ae19-4d9e-983c-885642c6c466",
+      "title": "",
+      "fullFile": "cypress/e2e/media.cy.js",
+      "file": "cypress/e2e/media.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aeb32ec7-f94a-4b8a-8b65-3a549dcec07a",
+          "title": "Calcular média",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "410bc774-53e7-403f-b942-75ba38017605",
+              "title": "informando valores válidos",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar a média",
+                  "fullTitle": "Calcular média informando valores válidos Deve retornar a média",
+                  "timedOut": null,
+                  "duration": 1113,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const number1 = Math.floor(Math.random() * 100000);\nconst number2 = Math.floor(Math.random() * 100000);\nconst media = (Math.round((number1 + number2) / 2.0 * 100) / 100).toFixed(2);\ncy.get('#number1').type(number1);\ncy.get('#number2').type(number2);\ncy.get('.btn').click();\ncy.contains(`Média: ${media}`).should('exist');\ncy.contains('Informe um número válido').should('not.exist');",
+                  "err": {},
+                  "uuid": "396f6d93-3734-4f7a-b3f7-5373d089e3b2",
+                  "parentUUID": "410bc774-53e7-403f-b942-75ba38017605",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "396f6d93-3734-4f7a-b3f7-5373d089e3b2"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1113,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "e985b942-e572-4314-85d8-fd841c90bb75",
+              "title": "informando apenas um valor válido",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar uma mensagem de erro",
+                  "fullTitle": "Calcular média informando apenas um valor válido Deve retornar uma mensagem de erro",
+                  "timedOut": null,
+                  "duration": 1050,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const number1 = Math.floor(Math.random() * 100000);\nconst number2 = 'not a number';\ncy.get('#number1').type(number1);\ncy.get('#number2').type(number2);\ncy.get('.btn').click();\ncy.contains('Média:').should('not.exist');\ncy.contains('Informe um número válido no SEGUNDO campo!').should('exist');",
+                  "err": {},
+                  "uuid": "2ff38196-c485-49d4-8b00-01a0e87a2a5b",
+                  "parentUUID": "e985b942-e572-4314-85d8-fd841c90bb75",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2ff38196-c485-49d4-8b00-01a0e87a2a5b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1050,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "54b125a8-cd7b-469b-b6b0-1ae329d56939",
+              "title": "com valor negativo",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar a média",
+                  "fullTitle": "Calcular média com valor negativo Deve retornar a média",
+                  "timedOut": null,
+                  "duration": 879,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const number1 = Math.floor(Math.random() * 100000);\nconst number2 = Math.floor(Math.random() * 100000) * -1;\nconst media = (Math.round((number1 + number2) / 2.0 * 100) / 100).toFixed(2);\ncy.get('#number1').type(number1);\ncy.get('#number2').type(number2);\ncy.get('.btn').click();\ncy.contains(`Média: ${media}`).should('exist');\ncy.contains('Informe um número válido').should('not.exist');",
+                  "err": {},
+                  "uuid": "ff2be595-6712-4cd5-a48d-b4525d164c84",
+                  "parentUUID": "54b125a8-cd7b-469b-b6b0-1ae329d56939",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "ff2be595-6712-4cd5-a48d-b4525d164c84"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 879,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "2f5e0f62-2d66-45d5-bbad-60452f341cf9",
+              "title": "sem informar valor",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Não deve realizar a requisição",
+                  "fullTitle": "Calcular média sem informar valor Não deve realizar a requisição",
+                  "timedOut": null,
+                  "duration": 866,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#media-form').invoke('submit', e => {\n  e.preventDefault();\n  throw new Error('Requesição realizada!');\n});\ncy.get('#media-form').within(() => {\n  cy.get('input:invalid').should('have.length', 2);\n  cy.get('#number1').type(Math.floor(Math.random() * 100000));\n  cy.get('input:invalid').should('have.length', 1);\n  cy.get('input:valid').should('have.length', 1);\n});\ncy.get('#media-form').within(() => {\n  cy.get('#number1').clear();\n  cy.get('.btn').click();\n});\ncy.get('#number1').invoke('prop', 'validationMessage').should('equal', 'Preencha este campo.');",
+                  "err": {},
+                  "uuid": "5bebd31e-5dcc-4d09-9167-bb2a7fce6f92",
+                  "parentUUID": "2f5e0f62-2d66-45d5-bbad-60452f341cf9",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5bebd31e-5dcc-4d09-9167-bb2a7fce6f92"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 866,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "7fbfcbe6-29ac-4cd4-beeb-c7f81ab6fc76",
+      "title": "",
+      "fullFile": "cypress/e2e/busca_cep.cy.js",
+      "file": "cypress/e2e/busca_cep.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bd659311-cd6f-4525-ae38-b5b6f3ca0bdc",
+          "title": "Buscar CEP",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "aa96cf50-f044-48ac-a0a8-b08dc1b0bb9a",
+              "title": "válido e com bairro",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar o endereço com o bairro",
+                  "fullTitle": "Buscar CEP válido e com bairro Deve retornar o endereço com o bairro",
+                  "timedOut": null,
+                  "duration": 2051,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const validCEP = '58073-197';\ncy.get('.form-control').type(`${validCEP}`);\ncy.get('.btn').click();\ncy.contains('CEP: 58073-197').should('exist');\ncy.contains('Logradouro: Rua Aposentado Abel Odilon Paulo').should('exist');\ncy.contains('Bairro: Cidade dos Colibris').should('exist');\ncy.contains('Não foi possível encontrar o bairro deste CEP').should('not.exist');\ncy.contains('CEP inválido').should('not.exist');",
+                  "err": {},
+                  "uuid": "47d29fad-79d5-42df-89d8-72df3b85ea3d",
+                  "parentUUID": "aa96cf50-f044-48ac-a0a8-b08dc1b0bb9a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "47d29fad-79d5-42df-89d8-72df3b85ea3d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2051,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "0321d7a3-5323-4ce4-99f6-e3ef229fe388",
+              "title": "válido, mas sem bairro",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar o endereço sem o bairro",
+                  "fullTitle": "Buscar CEP válido, mas sem bairro Deve retornar o endereço sem o bairro",
+                  "timedOut": null,
+                  "duration": 1071,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const validCEP = '18150000';\ncy.get('.form-control').type(`${validCEP}`);\ncy.get('.btn').click();\ncy.contains('CEP: 18150-000').should('exist');\ncy.contains('Cidade: Ibiúna').should('exist');\ncy.contains('Bairro: ').should('not.exist');\ncy.contains('Não foi possível encontrar o bairro deste CEP').should('exist');\ncy.contains('CEP inválido').should('not.exist');",
+                  "err": {},
+                  "uuid": "0ebb63ee-7dc8-45c6-bdc9-6054fff16f68",
+                  "parentUUID": "0321d7a3-5323-4ce4-99f6-e3ef229fe388",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0ebb63ee-7dc8-45c6-bdc9-6054fff16f68"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1071,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "7701b50b-f434-4d60-a84f-7f546404bf8b",
+              "title": "inválido",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar uma mensagem de erro",
+                  "fullTitle": "Buscar CEP inválido Deve retornar uma mensagem de erro",
+                  "timedOut": null,
+                  "duration": 1613,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const invalidCEP = '12345678';\ncy.get('.form-control').type(`${invalidCEP}`);\ncy.get('.btn').click();\ncy.contains('CEP: ').should('not.exist');\ncy.contains('Não foi possível encontrar o bairro deste CEP').should('not.exist');\ncy.contains('CEP inválido').should('exist');",
+                  "err": {},
+                  "uuid": "d4ac2bbc-38f3-4fc7-ae71-822475c3269b",
+                  "parentUUID": "7701b50b-f434-4d60-a84f-7f546404bf8b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d4ac2bbc-38f3-4fc7-ae71-822475c3269b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1613,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "1a8e733a-0a40-4f79-baaa-8f996f7ff5ae",
+              "title": "sem informar o cep",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Não deve realizar a requisição",
+                  "fullTitle": "Buscar CEP sem informar o cep Não deve realizar a requisição",
+                  "timedOut": null,
+                  "duration": 708,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#cep-form').invoke('submit', e => {\n  e.preventDefault();\n  throw new Error('Requesição realizada!');\n});\ncy.get('#cep-form').within(() => {\n  cy.get('.form-control').click();\n});\ncy.get('.form-control').invoke('prop', 'validationMessage').should('equal', 'Preencha este campo.');",
+                  "err": {},
+                  "uuid": "65aea6fa-c8ff-4323-af08-60ca1e98f3f0",
+                  "parentUUID": "1a8e733a-0a40-4f79-baaa-8f996f7ff5ae",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "65aea6fa-c8ff-4323-af08-60ca1e98f3f0"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 708,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "74b67c2c-42d2-49c9-9edd-38b725819fda",
+      "title": "",
+      "fullFile": "cypress/e2e/media.cy.js",
+      "file": "cypress/e2e/media.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "758ecd3c-1f9f-4a28-9fd2-6b4de980944a",
+          "title": "Calcular média",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "cc9c739e-9275-493f-bd85-828e17c42caa",
+              "title": "informando valores válidos",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar a média",
+                  "fullTitle": "Calcular média informando valores válidos Deve retornar a média",
+                  "timedOut": null,
+                  "duration": 1453,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const number1 = Math.floor(Math.random() * 100000);\nconst number2 = Math.floor(Math.random() * 100000);\nconst media = (Math.round((number1 + number2) / 2.0 * 100) / 100).toFixed(2);\ncy.get('#number1').type(number1);\ncy.get('#number2').type(number2);\ncy.get('.btn').click();\ncy.contains(`Média: ${media}`).should('exist');\ncy.contains('Informe um número válido').should('not.exist');",
+                  "err": {},
+                  "uuid": "b0545b1a-da90-4e13-9cd9-a3ebe573a0d7",
+                  "parentUUID": "cc9c739e-9275-493f-bd85-828e17c42caa",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b0545b1a-da90-4e13-9cd9-a3ebe573a0d7"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1453,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "cf9c27c0-448a-4b3f-8382-08bb7f362acd",
+              "title": "informando apenas um valor válido",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar uma mensagem de erro",
+                  "fullTitle": "Calcular média informando apenas um valor válido Deve retornar uma mensagem de erro",
+                  "timedOut": null,
+                  "duration": 1099,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const number1 = Math.floor(Math.random() * 100000);\nconst number2 = 'not a number';\ncy.get('#number1').type(number1);\ncy.get('#number2').type(number2);\ncy.get('.btn').click();\ncy.contains('Média:').should('not.exist');\ncy.contains('Informe um número válido no SEGUNDO campo!').should('exist');",
+                  "err": {},
+                  "uuid": "6cfc2baf-dab6-46eb-8a51-2b90ef587b1f",
+                  "parentUUID": "cf9c27c0-448a-4b3f-8382-08bb7f362acd",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6cfc2baf-dab6-46eb-8a51-2b90ef587b1f"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1099,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "09b545e2-3340-4d7b-9e32-4d2ef244aeed",
+              "title": "com valor negativo",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar a média",
+                  "fullTitle": "Calcular média com valor negativo Deve retornar a média",
+                  "timedOut": null,
+                  "duration": 948,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const number1 = Math.floor(Math.random() * 100000);\nconst number2 = Math.floor(Math.random() * 100000) * -1;\nconst media = (Math.round((number1 + number2) / 2.0 * 100) / 100).toFixed(2);\ncy.get('#number1').type(number1);\ncy.get('#number2').type(number2);\ncy.get('.btn').click();\ncy.contains(`Média: ${media}`).should('exist');\ncy.contains('Informe um número válido').should('not.exist');",
+                  "err": {},
+                  "uuid": "11e23006-e1cd-4544-b4ec-1a544d0f57c9",
+                  "parentUUID": "09b545e2-3340-4d7b-9e32-4d2ef244aeed",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "11e23006-e1cd-4544-b4ec-1a544d0f57c9"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 948,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "90c9005a-8e03-4c95-9abe-5d4eddead19f",
+              "title": "sem informar valor",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Não deve realizar a requisição",
+                  "fullTitle": "Calcular média sem informar valor Não deve realizar a requisição",
+                  "timedOut": null,
+                  "duration": 757,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#media-form').invoke('submit', e => {\n  e.preventDefault();\n  throw new Error('Requesição realizada!');\n});\ncy.get('#media-form').within(() => {\n  cy.get('input:invalid').should('have.length', 2);\n  cy.get('#number1').type(Math.floor(Math.random() * 100000));\n  cy.get('input:invalid').should('have.length', 1);\n  cy.get('input:valid').should('have.length', 1);\n});\ncy.get('#media-form').within(() => {\n  cy.get('#number1').clear();\n  cy.get('.btn').click();\n});\ncy.get('#number1').invoke('prop', 'validationMessage').should('equal', 'Preencha este campo.');",
+                  "err": {},
+                  "uuid": "2c4d4362-da14-4fb9-851f-6b6dea5e9eb9",
+                  "parentUUID": "90c9005a-8e03-4c95-9abe-5d4eddead19f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2c4d4362-da14-4fb9-851f-6b6dea5e9eb9"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 757,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

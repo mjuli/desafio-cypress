@@ -4,7 +4,9 @@
   "description": "Testando projeto de calculo de media e busca de cep com cypress",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:report": "npx mochawesome-merge cypress/results/mochawesome*.json  > report.json && npx marge report.json"
   },
   "keywords": [
     "cypress"
@@ -12,6 +14,11 @@
   "author": "Julia Martins",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^10.4.0"
+    "cypress": "^10.4.0",
+    "cypress-multi-reporters": "^1.6.1",
+    "mocha": "^10.0.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0"
   }
 }
