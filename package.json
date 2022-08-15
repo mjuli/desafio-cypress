@@ -1,0 +1,17 @@
+{
+  "name": "desafio-cypress",
+  "version": "1.0.0",
+  "description": "Testando projeto de calculo de media e busca de cep com cypress",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "Julia Martins",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^10.4.0"
+  }
+}
